@@ -13,5 +13,12 @@
 	"description": "",
 	"dependencies": {
 		"geode.node-ids": ">=v1.22.0-beta.1"
+	},
+	"settings": {
+		"reset-prac": {
+			"type": "bool",
+			"name": "Reset Practice Mode",
+			"default": false
+		}
 	}
 }

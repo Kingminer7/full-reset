@@ -9,7 +9,10 @@ class $modify(MyPauseLayer, PauseLayer) {
         if (PlayLayer::get()->m_isPlatformer) return;
 
         auto myButton = CCMenuItemExt::createSpriteExtraWithFrameName("GJ_replayFullBtn_001.png", 1.f, [this](auto){
-            PlayLayer::get()->fullReset();
+	    auto pl = PlayLayer::get();
+	    auto isPrac = pl->m_isPracticeMode;
+            pl->fullReset();
+	    if (isPrac && !Mod::get()->getSettingValue<bool>("reset-prac")) pl->togglePracticeMode(true);
             onResume(nullptr);
         });
         myButton->setID("full-restart-button"_spr);
